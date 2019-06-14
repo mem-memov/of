@@ -4,11 +4,15 @@ services:
 
   http:
     image: sbt_image:latest
+    volumes:
+      - ./http:/usr/src
     networks:
       - ofnet
 
   locations:
     image: sbt_image:latest
+    volumes:
+      - ./locations:/usr/src
     networks:
       - ofnet
 
@@ -19,8 +23,13 @@ services:
       POSTGRES_PASSWORD: of
       POSTGRES_DATABASE: of
       POSTGRES_PORT: 5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
     networks:
       - ofnet
 
 networks:
   ofnet:
+
+volumes:
+  db-data:
