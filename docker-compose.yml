@@ -4,6 +4,8 @@ services:
 
   http:
     image: sbt_image:latest
+    ports:
+      - "9010:8080"
     volumes:
       - ./http:/usr/src
     networks:
@@ -11,6 +13,8 @@ services:
 
   locations:
     image: sbt_image:latest
+    ports:
+      - "9020:8080"
     volumes:
       - ./locations:/usr/src
     networks:
@@ -18,6 +22,8 @@ services:
 
   database:
     image: postgres
+    ports:
+      - "9030:5432"
     environment:
       POSTGRES_USER: of
       POSTGRES_PASSWORD: of

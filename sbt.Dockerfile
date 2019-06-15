@@ -10,4 +10,6 @@ RUN apt-get update && \
 
 WORKDIR /usr/src
 
+EXPOSE 8080
+
 CMD while true; do sleep 3600; done

@@ -11,4 +11,6 @@
     docker exec -ti $(docker ps --quiet --filter="name=of_stack_http.1.") sbt
     docker exec -ti $(docker ps --quiet --filter="name=of_stack_locations.1.") sbt
 
+    docker exec -ti --workdir="/usr/src/of" $(docker ps --quiet --filter="name=of_stack_http.1.") sbt ~run
+
 
